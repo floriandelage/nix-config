@@ -1,5 +1,7 @@
 {
-	imports = [
-		./kitty
-	];
+    imports = [
+        ./kitty
+        ./nvim
+        ./ssh
+    ];
 }

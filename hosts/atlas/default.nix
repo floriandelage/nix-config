@@ -1,27 +1,27 @@
 {
-  inputs,
-  lib,
-  config,
-  pkgs,
-  ...
+    inputs,
+    lib,
+    config,
+    pkgs,
+    ...
 }: {
-  imports = [
-    ./hardware-configuration.nix
-	
-	../common/global
-	../common/users/florian
-	
-	../common/optional/niri.nix
-	../common/optional/pipewire.nix
-	../common/optional/systemd-boot.nix
-	../common/optional/wireless.nix
-	../common/optional/power-management.nix
-	../common/optional/noctalia-greeter.nix
-	../common/optional/fonts.nix
-	../common/optional/nvidia.nix
-  ];
+    imports = [
+        ./hardware-configuration.nix
 
-  networking.hostName = "atlas";
+        ../common/global
+        ../common/users/florian
 
-  system.stateVersion = "26.05";
+        ../common/optional/niri.nix
+        ../common/optional/pipewire.nix
+        ../common/optional/systemd-boot.nix
+        ../common/optional/wireless.nix
+        ../common/optional/power-management.nix
+        ../common/optional/noctalia-greeter.nix
+        ../common/optional/fonts.nix
+        ../common/optional/nvidia.nix
+    ];
+
+    networking.hostName = "atlas";
+
+    system.stateVersion = "26.05";
 }

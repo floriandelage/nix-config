@@ -2,7 +2,7 @@
 center = ["workspaces"]
 concave_edge_corners = false
 end = ["tray", "control-center"]
-font_family = "Iosevka NF"
+font_family = "Iosevka"
 margin_ends = 0
 position = "left"
 radius = 0
@@ -82,7 +82,7 @@ privacy = false
 wifi = false
 
 [shell]
-font_family = "Iosevka NF"
+font_family = "Iosevka"
 polkit_agent = true
 settings_show_advanced = false
 

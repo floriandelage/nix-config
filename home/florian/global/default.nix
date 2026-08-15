@@ -1,10 +1,10 @@
-{ config, ... }: {
-	imports = [
-	];
+{config, ...}: {
+    imports = [
+    ];
 
-	home = {
-		username = "florian";
-		homeDirectory = "/home/${config.home.username}";
-		stateVersion = "26.05";
-	};
+    home = {
+        username = "florian";
+        homeDirectory = "/home/${config.home.username}";
+        stateVersion = "26.05";
+    };
 }

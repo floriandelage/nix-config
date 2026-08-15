@@ -1,12 +1,12 @@
 {
-	console = {
-		keyMap = "fr";
-	};
+    console = {
+        keyMap = "fr";
+    };
 
-	boot.loader = {
-		systemd-boot = {
-			enable = true;
-		};
-		efi.canTouchEfiVariables = true;
-	};
+    boot.loader = {
+        systemd-boot = {
+            enable = true;
+        };
+        efi.canTouchEfiVariables = true;
+    };
 }

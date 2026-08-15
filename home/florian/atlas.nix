@@ -1,19 +1,15 @@
-{ pkgs, ...}: {
-	imports = [
-		./global
-		
-		./features/desktop/niri
-		./features/desktop/noctalia
-		./features/cli
-	];
+{pkgs, ...}: {
+    imports = [
+        ./global
 
-	
+        ./features/desktop/niri
+        ./features/desktop/noctalia
+        ./features/cli
+    ];
 
-	home.packages = with pkgs; [
-		vim	
-		git
-		kitty
-	];
-	
-	programs.firefox.enable = true;
+    home.packages = with pkgs; [
+        git
+    ];
+
+    programs.firefox.enable = true;
 }
