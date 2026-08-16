@@ -24,10 +24,31 @@
                     {
                         event = ["TextYankPost"];
                         desc = "Highlight yanked text";
-
                         callback = lib.generators.mkLuaInline ''
                             function()
                               vim.hl.on_yank()
+                            end
+                        '';
+                    }
+                    {
+                        event = ["VimEnter"];
+                        desc = "Disable kitty padding when entering";
+                        callback = lib.generators.mkLuaInline ''
+                            function()
+                                vim.defer_fn(function()
+                                    vim.cmd("silent !kitty @ set-spacing margin=0")
+                                end, 100)
+                            end
+                        '';
+                    }
+                    {
+                        event = ["VimLeave"];
+                        desc = "Re-enable kitty padding when leaving";
+                        callback = lib.generators.mkLuaInline ''
+                            function()
+                                vim.defer_fn(function()
+                                    vim.cmd("silent !kitty @ set-spacing margin=12")
+                                end, 100)
                             end
                         '';
                     }

@@ -1,12 +1,12 @@
 [bar.default]
-center = ["workspaces"]
+center = [ "workspaces" ]
 concave_edge_corners = false
-end = ["tray", "control-center"]
+end = [ "tray", "control-center" ]
 font_family = "Iosevka"
 margin_ends = 0
 position = "left"
 radius = 0
-start = ["clock"]
+start = [ "clock" ]
 
 [control_center]
 show_shortcut_labels = false
@@ -16,12 +16,12 @@ enabled = false
 schema_version = 2
 widget_order = []
 
-[desktop_widgets.grid]
-cell_size = 16
-major_interval = 4
-visible = true
+    [desktop_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
 
-[desktop_widgets.widget]
+    [desktop_widgets.widget]
 
 [location]
 address = "Arcachon, France"
@@ -33,37 +33,37 @@ fingerprint = false
 [lockscreen_widgets]
 enabled = false
 schema_version = 2
-widget_order = ["lockscreen-login-box@DP-1"]
+widget_order = [ "lockscreen-login-box@DP-1" ]
 
-[lockscreen_widgets.grid]
-cell_size = 16
-major_interval = 4
-visible = true
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
 
-[lockscreen_widgets.widget."lockscreen-login-box@DP-1"]
-box_height = 196.0
-box_width = 810.0
-cx = 960.0
-cy = 898.0
-output = "DP-1"
-rotation = 0.0
-type = "login_box"
+    [lockscreen_widgets.widget."lockscreen-login-box@DP-1"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 960.0
+    cy = 898.0
+    output = "DP-1"
+    rotation = 0.0
+    type = "login_box"
 
-[lockscreen_widgets.widget."lockscreen-login-box@DP-1".settings]
-background_color = "surface_variant"
-background_opacity = 0.88
-background_radius = 12.0
-center_password_text = false
-input_opacity = 1.0
-input_radius = 6.0
-layout = "regular"
-show_caps_lock = true
-show_keyboard_layout = true
-show_login_button = true
-show_media = true
-show_session_buttons = true
-show_unlock_hint = true
-show_weather = true
+        [lockscreen_widgets.widget."lockscreen-login-box@DP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
 
 [nightlight]
 enabled = true
@@ -86,61 +86,62 @@ font_family = "Iosevka"
 polkit_agent = true
 settings_show_advanced = false
 
-[shell.launcher]
-categories = false
-sort_by_usage = false
+    [shell.launcher]
+    categories = false
+    sort_by_usage = false
 
-[shell.launcher.providers.calculator]
-prefix = ""
+        [shell.launcher.providers.calculator]
+        prefix = ""
 
-[shell.panel]
-control_center_placement = "floating"
-control_center_position = "center"
-session_placement = "floating"
-session_position = "center"
+    [shell.panel]
+    control_center_placement = "floating"
+    control_center_position = "center"
+    session_placement = "floating"
+    session_position = "center"
 
-[shell.screenshot]
-directory = "/home/florian/Pictures/Screenshots"
-filename_pattern = "Screenshot from %Y-%m-%d %H-%M-%S"
+    [shell.screenshot]
+    directory = "/home/florian/Pictures/Screenshots"
+    filename_pattern = "Screenshot from %Y-%m-%d %H-%M-%S"
 
-[shell.session]
-grid = true
-grid_columns = 2
-show_shortcuts = false
-[[shell.session.actions]]
-action = "lock"
-countdown_seconds = 0.0
-enabled = true
-shortcut = "1"
-variant = "default"
+    [shell.session]
+    grid = true
+    grid_columns = 2
+    show_shortcuts = false
 
-[[shell.session.actions]]
-action = "logout"
-countdown_seconds = 0.0
-enabled = true
-shortcut = "2"
-variant = "default"
+        [[shell.session.actions]]
+        action = "lock"
+        countdown_seconds = 0.0
+        enabled = true
+        shortcut = "1"
+        variant = "default"
 
-[[shell.session.actions]]
-action = "lock_and_suspend"
-countdown_seconds = 0.0
-enabled = false
-shortcut = "3"
-variant = "default"
+        [[shell.session.actions]]
+        action = "logout"
+        countdown_seconds = 0.0
+        enabled = true
+        shortcut = "2"
+        variant = "default"
 
-[[shell.session.actions]]
-action = "reboot"
-countdown_seconds = 0.0
-enabled = true
-shortcut = "4"
-variant = "default"
+        [[shell.session.actions]]
+        action = "lock_and_suspend"
+        countdown_seconds = 0.0
+        enabled = false
+        shortcut = "3"
+        variant = "default"
 
-[[shell.session.actions]]
-action = "shutdown"
-countdown_seconds = 0.0
-enabled = true
-shortcut = "5"
-variant = "destructive"
+        [[shell.session.actions]]
+        action = "reboot"
+        countdown_seconds = 0.0
+        enabled = true
+        shortcut = "4"
+        variant = "default"
+
+        [[shell.session.actions]]
+        action = "shutdown"
+        countdown_seconds = 0.0
+        enabled = true
+        shortcut = "5"
+        variant = "destructive"
 
 [theme]
 builtin = "Gruvbox"
@@ -149,24 +150,27 @@ mode = "dark"
 source = "builtin"
 wallpaper_scheme = "m3-content"
 
-[theme.templates]
-enable_builtin_templates = false
-enable_community_templates = false
+    [theme.templates]
+    enable_builtin_templates = false
+    enable_community_templates = false
 
 [wallpaper]
 directory = "/home/florian/.nix-config/assets/wallpapers"
 
-[wallpaper.default]
-path = "/home/florian/.nix-config/assets/wallpapers/washiya.jpg"
+    [wallpaper.default]
+    path = "/home/florian/.nix-config/assets/wallpapers/washiya.jpg"
 
-[wallpaper.last]
-path = "/home/florian/.nix-config/assets/wallpapers/washiya.jpg"
+    [wallpaper.last]
+    path = "/home/florian/.nix-config/assets/wallpapers/washiya.jpg"
 
-[wallpaper.monitors.DP-1]
-path = "/home/florian/.nix-config/assets/wallpapers/washiya.jpg"
+    [wallpaper.monitors.DP-1]
+    path = "/home/florian/.nix-config/assets/wallpapers/washiya.jpg"
 
 [widget.control-center]
+custom_image = "/home/florian/.nix-config/assets/logos/nixos-white.svg"
+custom_image_colorize = true
 glyph = "snowflake"
+scale = 1.25
 
 [widget.workspaces]
 hide_when_empty = true
