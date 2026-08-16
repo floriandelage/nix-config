@@ -4,7 +4,9 @@
 
         enableCompletion = false;
 
-        shellAliases = {};
+        shellAliases = {
+            c = "clear";
+        };
 
         initContent = ''
             ZINIT_HOME="''${XDG_DATA_HOME:-''${HOME}/.local/share}/zinit/zinit.git"
@@ -27,9 +29,13 @@
 
             zinit light Aloxaf/fzf-tab
 
-            bindkey -e
-            bindkey '^p' history-search-backward
-            bindkey '^n' history-search-forward
+            bindkey -v
+
+            bindkey -M viins '^?' backward-delete-char
+            bindkey -M viins '^H' backward-delete-char
+            bindkey -M viins '^F' autosuggest-accept
+            bindkey -M viins '^P' history-search-backward
+            bindkey -M viins '^N' history-search-forward
 
             zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
             zstyle ':completion:*' list-colors "''${(s.:.)LS_COLORS}"
@@ -41,6 +47,11 @@
             zstyle ':fzf-tab:complete:__zoxide_cd:*' \
                 fzf-preview 'ls --color $realpath'
 
+            if [[ -z "$TMUX" ]] && [[ $- == *i* ]]; then
+                exec tmux new-session -A -s main
+            fi
+
+            fastfetch
         '';
 
         history = {

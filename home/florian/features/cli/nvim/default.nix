@@ -18,6 +18,12 @@
                     ripgrep
                 ];
 
+                extraPlugins = {
+                    vim-tmux-navigator = {
+                        package = pkgs.vimPlugins.vim-tmux-navigator;
+                    };
+                };
+
                 vendoredKeymaps.enable = false;
 
                 autocmds = [
@@ -64,7 +70,6 @@
 
                             keymap.preset = "default";
                             cmdline.keymap.preset = "cmdline";
-                            terminal.keymap.preset = "terminal";
                         };
                     };
                 };
@@ -252,6 +257,31 @@
                         key = "<leader>fh";
                         action = "<cmd>Pick help<CR>";
                         desc = "Find help";
+                    }
+
+                    {
+                        key = "<C-h>";
+                        mode = "n";
+                        action = "<cmd>TmuxNavigateLeft<CR>";
+                        desc = "Move to left window/pane";
+                    }
+                    {
+                        key = "<C-j>";
+                        mode = "n";
+                        action = "<cmd>TmuxNavigateDown<CR>";
+                        desc = "Move to bottom window/pane";
+                    }
+                    {
+                        key = "<C-k>";
+                        mode = "n";
+                        action = "<cmd>TmuxNavigateUp<CR>";
+                        desc = "Move to top window/pane";
+                    }
+                    {
+                        key = "<C-l>";
+                        mode = "n";
+                        action = "<cmd>TmuxNavigateRight<CR>";
+                        desc = "Move to right window/pane";
                     }
                 ];
 
