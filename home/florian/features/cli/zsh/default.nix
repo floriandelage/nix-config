@@ -33,6 +33,7 @@
 
             bindkey -M viins '^?' backward-delete-char
             bindkey -M viins '^H' backward-delete-char
+            bindkey -M viins '^[[3~' delete-char
             bindkey -M viins '^F' autosuggest-accept
             bindkey -M viins '^P' history-search-backward
             bindkey -M viins '^N' history-search-forward
