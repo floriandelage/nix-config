@@ -59,7 +59,7 @@ binds {
 	Mod+C { center-column; }
 
 	Mod+Return { spawn "kitty"; }
-	Mod+B { spawn "firefox"; }
+	Mod+B { spawn "zen"; }
 
 	Mod+Ctrl+Return { spawn-sh "noctalia msg panel-toggle launcher"; }
 	Mod+Space { spawn-sh "noctalia msg panel-toggle control-center"; }

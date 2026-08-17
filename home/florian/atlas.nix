@@ -10,6 +10,4 @@
     home.packages = with pkgs; [
         git
     ];
-
-    programs.firefox.enable = true;
 }
