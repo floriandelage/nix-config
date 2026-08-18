@@ -7,8 +7,12 @@
         ./ripgrep
         ./tmux
         ./oh-my-posh
-        ./ssh
         ./zoxide
         ./zsh
     ];
+
+    home.sessionVariables = {
+        EDITOR = "nvim";
+        VISUAL = "nvim";
+    };
 }

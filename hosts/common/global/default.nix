@@ -4,6 +4,8 @@
 
         ./locale.nix
         ./nix.nix
+        ./openshh.nix
+        ./sops.nix
     ];
 
     home-manager = {
