@@ -442,14 +442,6 @@
                     splitright = true;
                 };
 
-                terminal = {
-                    toggleterm = {
-                        enable = true;
-                        mappings.open = "<C-t>";
-                        setupOpts.direction = "float";
-                    };
-                };
-
                 theme = {
                     enable = true;
                     name = "gruvbox";
