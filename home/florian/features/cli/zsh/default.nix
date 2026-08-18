@@ -5,6 +5,7 @@
         enableCompletion = false;
 
         shellAliases = {
+            v = "nvim";
             c = "clear";
         };
 
