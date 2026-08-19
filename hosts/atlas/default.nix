@@ -7,6 +7,8 @@
 }: {
     imports = [
         ./hardware-configuration.nix
+        ./disko.nix
+        ./preservation.nix
 
         ../common/global
         ../common/users/florian

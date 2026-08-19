@@ -55,10 +55,10 @@
     "mysecrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1787102093,
-        "narHash": "sha256-CbiMUI/e+TfNSyzEtL+MwXBr0De84EIx0RP515IjbBE=",
+        "lastModified": 1787103016,
+        "narHash": "sha256-cGFyIY6cpg2uVRIjb8d8htxUWVW48uPKADvMM7sHHxY=",
         "ref": "main",
-        "rev": "d0cd4c2bd212e6963468c96987e6e580e7d68d05",
+        "rev": "69c184965c4a9b23604d577cbccc20bc0d67cb5d",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/floriandelage/nix-secrets.git"
@@ -133,11 +133,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1787100335,
-        "narHash": "sha256-0unPdMLlkRzAx/IxtCzoc5h0CsmXiOT+Nk/iDJb/1J0=",
+        "lastModified": 1787101746,
+        "narHash": "sha256-vG4qj6mUib1IsAy4DdjUV1fvOs8+uExyzPlLyWIFkcY=",
         "owner": "noctalia-dev",
         "repo": "noctalia",
-        "rev": "9c666da74f3e49a8b4ae01da718b6ac27b978106",
+        "rev": "fa1a968cf730d45dbda60cc85b43ef40d24dc8e2",
         "type": "github"
       },
       "original": {

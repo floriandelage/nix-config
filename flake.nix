@@ -20,8 +20,27 @@
             url = "github:nix-community/home-manager/release-26.05";
             inputs.nixpkgs.follows = "nixpkgs";
         };
-        noctalia.url = "github:noctalia-dev/noctalia/cachix";
-        spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+        sops-nix = {
+            url = "github:Mic92/sops-nix";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
+        mysecrets = {
+            url = "git+ssh://git@github.com/floriandelage/nix-secrets.git?ref=main&shallow=1";
+            flake = false;
+        };
+        preservation = {
+            url = "github:nix-community/preservation";
+        };
+        disko = {
+            url = "github:nix-community/disko";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
+        noctalia = {
+            url = "github:noctalia-dev/noctalia/cachix";
+        };
+        spicetify-nix = {
+            url = "github:Gerg-L/spicetify-nix";
+        };
         noctalia-greeter = {
             url = "github:noctalia-dev/noctalia-greeter";
             inputs.nixpkgs.follows = "nixpkgs";
@@ -33,14 +52,6 @@
         zen-browser = {
             url = "github:youwen5/zen-browser-flake";
             inputs.nixpkgs.follows = "nixpkgs";
-        };
-        sops-nix = {
-            url = "github:Mic92/sops-nix";
-            inputs.nixpkgs.follows = "nixpkgs";
-        };
-        mysecrets = {
-            url = "git+ssh://git@github.com/floriandelage/nix-secrets.git?ref=main&shallow=1";
-            flake = false;
         };
     };
 
