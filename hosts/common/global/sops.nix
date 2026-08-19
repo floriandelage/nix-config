@@ -19,6 +19,12 @@ in {
         };
 
         secrets = {
+            "keys/age" = {
+                owner = "florian";
+                group = "users";
+                mode = "0600";
+                path = "/home/florian/.config/sops/age/keys.txt";
+            };
         };
     };
 }
