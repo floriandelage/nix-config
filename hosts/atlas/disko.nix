@@ -39,7 +39,7 @@
         };
 
         content.partitions.swap = {
-            size = "32GB";
+            size = "32G";
             content = {
                 type = "swap";
                 resumeDevice = true;
