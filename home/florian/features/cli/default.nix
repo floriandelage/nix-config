@@ -1,6 +1,7 @@
 {
     imports = [
         ./fastfetch
+        ./fd
         ./fzf
         ./kitty
         ./nvim

@@ -14,12 +14,12 @@
                     file = "/etc/ssh/ssh_host_ed25519_key";
                     inInitrd = true;
                 }
+
                 "/etc/ssh/ssh_host_ed25519_key.pub"
             ];
-
             directories = [
                 "/var/lib/nixos"
-                "/var/lib/systemd/timers"
+                "/var/lib/systemd"
                 "/var/log"
                 "/etc/NetworkManager/system-connections"
             ];
@@ -30,18 +30,27 @@
                 ];
 
                 directories = [
-                    ".nix-config"
-
+                    "Desktop"
                     "Documents"
                     "Downloads"
-                    "Pictures"
-                    "Videos"
                     "Music"
+                    "Pictures"
+                    "Projects"
+                    "Public"
+                    "Templates"
+                    "Videos"
+
+                    ".nix-config"
+
+                    ".local/state/home-manager"
+                    ".local/state/nix/profiles"
+                    ".local/share/nix"
 
                     ".local/share/zinit"
                     ".local/share/zoxide"
 
                     ".local/state/nvf"
+                    ".local/state/noctalia"
 
                     ".config/discord"
                     ".config/spotify"
@@ -49,5 +58,16 @@
                 ];
             };
         };
+    };
+
+    systemd.services.systemd-machine-id-commit = {
+        unitConfig.ConditionPathIsMountPoint = [
+            ""
+            "/persistent/etc/machine-id"
+        ];
+        serviceConfig.ExecStart = [
+            ""
+            "systemd-machine-id-setup --commit --root /persistent"
+        ];
     };
 }

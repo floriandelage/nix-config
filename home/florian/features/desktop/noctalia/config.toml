@@ -85,6 +85,7 @@ wifi = false
 font_family = "Iosevka"
 polkit_agent = true
 settings_show_advanced = false
+setup_wizard_enabled = false
 
     [shell.launcher]
     categories = false
@@ -155,15 +156,10 @@ wallpaper_scheme = "m3-content"
     enable_community_templates = false
 
 [wallpaper]
+enabled = true
 directory = "/home/florian/.nix-config/assets/wallpapers"
 
     [wallpaper.default]
-    path = "/home/florian/.nix-config/assets/wallpapers/washiya.jpg"
-
-    [wallpaper.last]
-    path = "/home/florian/.nix-config/assets/wallpapers/washiya.jpg"
-
-    [wallpaper.monitors.DP-1]
     path = "/home/florian/.nix-config/assets/wallpapers/washiya.jpg"
 
 [widget.control-center]
