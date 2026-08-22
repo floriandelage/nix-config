@@ -1,13 +1,6 @@
-{
-    inputs,
-    lib,
-    config,
-    pkgs,
-    ...
-}: {
+{inputs, ...}: {
     imports = [
         ./hardware-configuration.nix
-        ./disko.nix
         ./impermanence.nix
 
         ../common/global
@@ -19,7 +12,6 @@
         ../common/optional/wireless.nix
         ../common/optional/power-management.nix
         ../common/optional/noctalia-greeter.nix
-        ../common/optional/nvidia.nix
     ];
 
     networking.hostName = "atlas";
