@@ -1,30 +1,20 @@
 {
     inputs,
+    config,
     pkgs,
     ...
 }: let
-    secretsPath = toString inputs.mysecrets;
+    isEd25519 = k: k.type == "ed25519";
+    getKeyPath = k: k.path;
+    keys = builtins.filter isEd25519 config.services.openssh.hostKeys;
 in {
-    imports = [inputs.sops-nix.nixosModules.sops];
-    environment.systemPackages = with pkgs; [age sops];
+    imports = [
+        inputs.sops-nix.nixosModules.sops
+    ];
 
-    sops = {
-        defaultSopsFile = "${secretsPath}/secrets.yaml";
-        validateSopsFiles = false;
+    environment.systemPackages = with pkgs; [
+        sops
+    ];
 
-        age = {
-            sshKeyPaths = ["/persistent/etc/ssh/ssh_host_ed25519_key"];
-            keyFile = "/var/lib/sops-nix/key.txt";
-            generateKey = true;
-        };
-
-        secrets = {
-            "keys/age" = {
-                owner = "florian";
-                group = "users";
-                mode = "0600";
-                path = "/home/florian/.config/sops/age/keys.txt";
-            };
-        };
-    };
+    sops.age.sshKeyPaths = map getKeyPath keys;
 }

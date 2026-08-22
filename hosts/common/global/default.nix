@@ -4,7 +4,7 @@
 
         ./locale.nix
         ./nix.nix
-        ./openshh.nix
+        ./openssh.nix
         ./sops.nix
     ];
 

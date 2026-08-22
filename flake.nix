@@ -24,12 +24,9 @@
             url = "github:Mic92/sops-nix";
             inputs.nixpkgs.follows = "nixpkgs";
         };
-        mysecrets = {
-            url = "git+ssh://git@github.com/floriandelage/nix-secrets.git?ref=main&shallow=1";
-            flake = false;
-        };
-        preservation = {
-            url = "github:nix-community/preservation";
+        impermanence = {
+            url = "github:nix-community/impermanence";
+            inputs.nixpkgs.follows = "nixpkgs";
         };
         disko = {
             url = "github:nix-community/disko";
@@ -61,6 +58,8 @@
         home-manager,
         ...
     } @ inputs: let
+        inherit (self) outputs;
+
         systems = [
             "x86_64-linux"
         ];
@@ -69,14 +68,15 @@
     in {
         packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
         formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
-        overlays = import ./overlays {inherit inputs;};
+        devShells = forAllSystems (system: import ./shell.nix nixpkgs.legacyPackages.${system});
+        overlays = import ./overlays {inherit inputs outputs;};
         nixosModules = import ./modules/nixos;
         homeManagerModules = import ./modules/home-manager;
 
         nixosConfigurations = {
             atlas = nixpkgs.lib.nixosSystem {
                 modules = [./hosts/atlas];
-                specialArgs = {inherit inputs;};
+                specialArgs = {inherit inputs outputs;};
             };
         };
     };

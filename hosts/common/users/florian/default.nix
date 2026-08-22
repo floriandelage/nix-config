@@ -1,10 +1,18 @@
 {
-    config,
     pkgs,
+    lib,
+    config,
     ...
 }: {
-    sops.secrets.florian-password.neededForUsers = true;
     users.mutableUsers = false;
+    users.users.florian = {
+        isNormalUser = true;
+        shell = pkgs.zsh;
+        extraGroups = ["networkmanager" "wheel"];
+
+        openssh.authorizedKeys.keys = lib.splitString "\n" (builtins.readFile ../../../../home/florian/ssh.pub);
+        hashedPasswordFile = config.sops.secrets.florian-password.path;
+    };
 
     environment.pathsToLink = ["/share/zsh"];
     programs.zsh = {
@@ -12,15 +20,11 @@
         enableGlobalCompInit = false;
     };
 
-    users.users.florian = {
-        isNormalUser = true;
-        hashedPasswordFile = config.sops.secrets.florian-password.path;
-        extraGroups = ["networkmanager" "wheel"];
-        shell = pkgs.zsh;
-
-        openssh.authorizedKeys.keys = [
-            (builtins.readFile ./keys/id_florian.pub)
-        ];
+    sops.secrets = {
+        florian-password = {
+            sopsFile = ../../secrets.yaml;
+            neededForUsers = true;
+        };
     };
 
     home-manager.users.florian = import ../../../../home/florian/${config.networking.hostName}.nix;

@@ -1,6 +1,5 @@
 {config, ...}: {
     imports = [
-        ./sops.nix
         ./ssh.nix
     ];
 

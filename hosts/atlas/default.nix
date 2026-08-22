@@ -8,7 +8,7 @@
     imports = [
         ./hardware-configuration.nix
         ./disko.nix
-        ./preservation.nix
+        ./impermanence.nix
 
         ../common/global
         ../common/users/florian

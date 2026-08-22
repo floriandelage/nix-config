@@ -1,71 +1,82 @@
 {inputs, ...}: {
-    imports = [inputs.disko.nixosModules.default];
-
-    fileSystems."/nix".neededForBoot = true;
-    fileSystems."/persistent".neededForBoot = true;
-
-    disko.devices.nodev = {
-        "/" = {
-            fsType = "tmpfs";
-            mountOptions = [
-                "size=25%"
-                "mode=755"
-            ];
-        };
-    };
+    imports = [
+        inputs.disko.nixosModules.default
+        ../common/optional/ephemeral-btrfs.nix
+    ];
 
     disko.devices.disk.main = {
-        device = "/dev/nvme0n1";
         type = "disk";
+        device = "/dev/disk/by-id/nvme-Force_MP510_203982920001288759DA";
 
-        content.type = "gpt";
+        content = {
+            type = "gpt";
 
-        content.partitions.boot = {
-            name = "boot";
-            size = "1M";
-            type = "EF02";
-        };
+            partitions = {
+                ESP = {
+                    name = "ESP";
+                    size = "1G";
+                    type = "EF00";
 
-        content.partitions.esp = {
-            name = "ESP";
-            size = "1G";
-            type = "EF00";
-
-            content = {
-                type = "filesystem";
-                format = "vfat";
-                mountpoint = "/boot";
-            };
-        };
-
-        content.partitions.swap = {
-            size = "32G";
-            content = {
-                type = "swap";
-                resumeDevice = true;
-            };
-        };
-
-        content.partitions.root = {
-            name = "root";
-            size = "100%";
-
-            content = {
-                type = "btrfs";
-                extraArgs = ["-f"];
-
-                subvolumes = {
-                    "/persistent" = {
-                        mountOptions = ["subvol=persist" "noatime"];
-                        mountpoint = "/persistent";
+                    content = {
+                        type = "filesystem";
+                        format = "vfat";
+                        mountpoint = "/boot";
+                        mountOptions = ["umask=0077"];
                     };
+                };
 
-                    "/nix" = {
-                        mountOptions = ["subvol=nix" "noatime"];
-                        mountpoint = "/nix";
+                root = {
+                    size = "100%";
+
+                    content = {
+                        type = "btrfs";
+                        extraArgs = ["-f"];
+
+                        postCreateHook = ''
+                            MNTPOINT=$(mktemp -d)
+
+                            mount -t btrfs -o subvolid=5 "$device" "$MNTPOINT"
+                            trap 'umount "$MNTPOINT"; rmdir "$MNTPOINT"' EXIT
+
+                            if [ ! -e "$MNTPOINT/root-blank" ]; then
+                              btrfs subvolume snapshot \
+                                -r \
+                                "$MNTPOINT/root" \
+                                "$MNTPOINT/root-blank"
+                            fi
+
+                            umount "$MNTPOINT"
+                            rmdir "$MNTPOINT"
+                        '';
+
+                        subvolumes = {
+                            "/root" = {
+                                mountpoint = "/";
+                                mountOptions = ["compress=zstd" "noatime"];
+                            };
+
+                            "/nix" = {
+                                mountpoint = "/nix";
+                                mountOptions = ["compress=zstd" "noatime"];
+                            };
+
+                            "/persist" = {
+                                mountpoint = "/persist";
+                                mountOptions = ["compress=zstd" "noatime"];
+                            };
+
+                            "/swap" = {
+                                mountpoint = "/swap";
+                                swap.swapfile = {
+                                    size = "6G";
+                                };
+                            };
+                        };
                     };
                 };
             };
         };
     };
+
+    fileSystems."/persist".neededForBoot = true;
 }
