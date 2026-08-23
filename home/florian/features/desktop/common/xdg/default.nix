@@ -25,4 +25,16 @@
             createDirectories = true;
         };
     };
+
+    home.persistence."/persist/".directories = [
+        "Desktop"
+        "Documents"
+        "Downloads"
+        "Music"
+        "Pictures"
+        "Projects"
+        "Public"
+        "Templates"
+        "Videos"
+    ];
 }

@@ -68,4 +68,13 @@
             expireDuplicatesFirst = true;
         };
     };
+
+    home.persistence."/persist" = {
+        directories = [
+            "./local/share/zinit"
+        ];
+        files = [
+            ".zsh_history"
+        ];
+    };
 }

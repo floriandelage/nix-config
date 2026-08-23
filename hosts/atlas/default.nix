@@ -1,7 +1,6 @@
-{inputs, ...}: {
+{
     imports = [
         ./hardware-configuration.nix
-        ./impermanence.nix
 
         ../common/global
         ../common/users/florian
@@ -11,7 +10,6 @@
         ../common/optional/systemd-boot.nix
         ../common/optional/wireless.nix
         ../common/optional/power-management.nix
-        ../common/optional/noctalia-greeter.nix
     ];
 
     networking.hostName = "atlas";

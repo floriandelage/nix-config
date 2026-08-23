@@ -14,12 +14,6 @@
         hashedPasswordFile = config.sops.secrets.florian-password.path;
     };
 
-    environment.pathsToLink = ["/share/zsh"];
-    programs.zsh = {
-        enable = true;
-        enableGlobalCompInit = false;
-    };
-
     sops.secrets = {
         florian-password = {
             sopsFile = ../../secrets.yaml;

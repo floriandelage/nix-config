@@ -10,7 +10,6 @@
 
     programs.nvf = {
         enable = true;
-
         settings = {
             vim = {
                 extraPackages = with pkgs; [
@@ -89,6 +88,12 @@
                 formatter = {
                     conform-nvim = {
                         enable = true;
+
+                        setupOpts.formatters.alejandra = {
+                            cwd = lib.generators.mkLuaInline ''
+                                require("conform.util").root_file({ "alejandra.toml" })
+                            '';
+                        };
                     };
                 };
 
@@ -460,4 +465,8 @@
             };
         };
     };
+
+    home.persistence."/persist".directories = [
+        ".local/state/nvf"
+    ];
 }

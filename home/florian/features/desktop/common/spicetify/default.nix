@@ -16,12 +16,10 @@
             shuffle
         ];
 
-        enabledCustomApps = with spicePkgs.apps; [
-        ];
-
-        enabledSnippets = with spicePkgs.snippets; [
-        ];
-
         theme = spicePkgs.themes.onepunch;
     };
+
+    home.persistence."/persist/".directories = [
+        ".config/spotify"
+    ];
 }

@@ -1,7 +1,10 @@
 {
     nix = {
         settings = {
-            trusted-users = ["florian "];
+            trusted-users = [
+                "root"
+                "@wheel"
+            ];
 
             substituters = [
                 "https://cache.nixos.org"
@@ -10,6 +13,7 @@
             trusted-public-keys = [
             ];
 
+            auto-optimise-store = true;
             experimental-features = ["nix-command" "flakes"];
             warn-dirty = false;
         };

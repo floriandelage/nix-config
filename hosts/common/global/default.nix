@@ -2,10 +2,14 @@
     imports = [
         inputs.home-manager.nixosModules.home-manager
 
+        ./display-manager.nix
+        ./gamemode.nix
         ./locale.nix
         ./nix.nix
         ./openssh.nix
+        ./optin-persistence.nix
         ./sops.nix
+        ./zsh.nix
     ];
 
     home-manager = {
