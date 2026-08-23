@@ -71,7 +71,7 @@
 
     home.persistence."/persist" = {
         directories = [
-            "./local/share/zinit"
+            ".local/share/zinit"
         ];
         files = [
             ".zsh_history"
