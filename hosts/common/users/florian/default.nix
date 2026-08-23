@@ -15,9 +15,15 @@
     };
 
     sops.secrets = {
-        florian-password = {
+        "florian-password" = {
             sopsFile = ../../secrets.yaml;
             neededForUsers = true;
+        };
+
+        "ssh/id_ed25519" = {
+            sopsFile = ../../secrets.yaml;
+            owner = "florian";
+            mode = "0600";
         };
     };
 

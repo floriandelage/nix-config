@@ -3,11 +3,21 @@
         ./global
 
         ./features/desktop/niri
-        ./features/desktop/noctalia
         ./features/cli
     ];
 
     home.packages = with pkgs; [
         git
+    ];
+
+    monitors = [
+        {
+            name = "DP-1";
+            primary = true;
+            width = 1920;
+            height = 1080;
+            refreshRate = 164.917;
+            enabled = true;
+        }
     ];
 }

@@ -15,12 +15,6 @@
         files = [
             "/etc/machine-id"
         ];
-
-        users.florian = {
-            directories = [
-                ".nix-config"
-            ];
-        };
     };
 
     boot.initrd.systemd.suppressedUnits = [

@@ -46,11 +46,6 @@ input {
 	focus-follows-mouse
 }
 
-output "DP-1" {
-	mode "1920x1080@164.917"
-}
-
-
 binds {
 	Mod+Q { close-window; }
 	Mod+F { maximize-column; }
@@ -60,6 +55,7 @@ binds {
 
 	Mod+Return { spawn "kitty"; }
 	Mod+B { spawn "zen"; }
+	Mod+E { spawn "nautilus"; }
 
 	Mod+Ctrl+Return { spawn-sh "noctalia msg panel-toggle launcher"; }
 	Mod+Space { spawn-sh "noctalia msg panel-toggle control-center"; }
@@ -69,6 +65,7 @@ binds {
 	XF86AudioRaiseVolume { spawn-sh "noctalia msg volume-up"; }
 	XF86AudioLowerVolume { spawn-sh "noctalia msg volume-down"; }
 	XF86AudioMute { spawn-sh "noctalia msg volume-mute"; }
+    XF86AudioMicMute { spawn-sh "noctalia msg mic-mute"; }
 	XF86MonBrightnessUp { spawn-sh "noctalia msg brightness-up"; }
 	XF86MonBrightnessDown { spawn-sh "noctalia msg brightness-down"; }
 

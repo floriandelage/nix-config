@@ -12,7 +12,6 @@
         inputs.nixos-hardware.nixosModules.common-pc-ssd
 
         inputs.disko.nixosModules.default
-        ../common/optional/ephemeral-btrfs.nix
     ];
 
     boot = {

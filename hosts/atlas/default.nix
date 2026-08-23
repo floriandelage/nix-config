@@ -5,11 +5,14 @@
         ../common/global
         ../common/users/florian
 
+        ../common/optional/bluetooth.nix
+        ../common/optional/greeter.nix
+        ../common/optional/networkmanager.nix
         ../common/optional/niri.nix
         ../common/optional/pipewire.nix
+        ../common/optional/power.nix
         ../common/optional/systemd-boot.nix
-        ../common/optional/wireless.nix
-        ../common/optional/power-management.nix
+        ../common/optional/zsh.nix
     ];
 
     networking.hostName = "atlas";
