@@ -14,6 +14,7 @@
         stateVersion = "26.05";
         persistence."/persist".directories = [
             ".nix-config"
+            ".local/share/nix"
         ];
     };
 }

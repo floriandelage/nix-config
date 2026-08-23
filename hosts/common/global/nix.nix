@@ -3,7 +3,7 @@
         settings = {
             trusted-users = [
                 "root"
-                "@wheel"
+                "florian"
             ];
 
             substituters = [
@@ -21,6 +21,14 @@
             automatic = true;
             dates = "daily";
             options = "--delete-older-than 7d";
+        };
+    };
+
+    environment.persistence."/persist" = {
+        users.root = {
+            directories = [
+                ".local/share/nix"
+            ];
         };
     };
 }

@@ -13,15 +13,14 @@
     };
 
     inputs = {
-        nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
-        nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+        nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
         nixos-hardware = {
             url = "github:NixOS/nixos-hardware";
             inputs.nixpkgs.follows = "nixpkgs";
         };
         home-manager = {
-            url = "github:nix-community/home-manager/release-26.05";
+            url = "github:nix-community/home-manager";
             inputs.nixpkgs.follows = "nixpkgs";
         };
         sops-nix = {
@@ -90,7 +89,6 @@
                 modules = [./hosts/hermes];
                 specialArgs = {inherit inputs outputs;};
             };
-	    
         };
     };
 }
