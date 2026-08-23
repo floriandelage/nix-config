@@ -10,8 +10,10 @@
         shell = pkgs.zsh;
         extraGroups = ["networkmanager" "wheel"];
 
-        openssh.authorizedKeys.keys = lib.splitString "\n" (builtins.readFile ../../../../home/florian/ssh.pub);
         hashedPasswordFile = config.sops.secrets.florian-password.path;
+        openssh.authorizedKeys.keyFiles = [
+            ../../../../home/florian/ssh.pub
+        ];
     };
 
     sops.secrets = {

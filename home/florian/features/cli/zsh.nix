@@ -49,7 +49,7 @@
             zstyle ':fzf-tab:complete:__zoxide_cd:*' \
                 fzf-preview 'ls --color $realpath'
 
-            if [[ -z "$TMUX" ]] && [[ $- == *i* ]]; then
+            if [[ -z "$TMUX" && -z "$SSH_CONNECTION" && $- == *i* ]]; then
                 exec tmux new-session -A -s main
             fi
 
@@ -57,9 +57,9 @@
         '';
 
         history = {
+            path = "$XDG_STATE_HOME/zsh/history";
             size = 5000;
             save = 5000;
-            path = "$HOME/.zsh_history";
 
             append = true;
             share = true;
@@ -72,9 +72,7 @@
     home.persistence."/persist" = {
         directories = [
             ".local/share/zinit"
-        ];
-        files = [
-            ".zsh_history"
+            ".local/state/zsh"
         ];
     };
 }
