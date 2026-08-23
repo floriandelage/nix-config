@@ -86,6 +86,11 @@
                 modules = [./hosts/atlas];
                 specialArgs = {inherit inputs outputs;};
             };
+            hermes = nixpkgs.lib.nixosSystem {
+                modules = [./hosts/hermes];
+                specialArgs = {inherit inputs outputs;};
+            };
+	    
         };
     };
 }

@@ -3,15 +3,12 @@ keys:
     - &florian age1jyy7a4a4gamwjuq0v03zuspeeccvespzam9devv6ma5awdqlaunsx4k5lw
   - &hosts:
     - &atlas age1knkttm7kgs03xm203wk9m2ge0u830lya0zl30x0ft3w5f4t405tqqpysee
+    - &hermes age1ghnjrsgl0mvvcg27n83dua8hpffh5xl0yv7edcx9uyxp820ad4fslx5ajz
 
 creation_rules:
   - path_regex: hosts/common/secrets.ya?ml$
     key_groups:
       - age:
-        - *atlas
         - *florian
-  - path_regex: hosts/atlas/secrets.ya?ml$
-    key_groups:
-      - age:
         - *atlas
-        - *florian
+        - *hermes
