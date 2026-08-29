@@ -12,6 +12,4 @@
         # ...
         # });
     };
-
-    nur = inputs.nur.overlays.default;
 }

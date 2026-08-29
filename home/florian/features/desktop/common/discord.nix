@@ -3,7 +3,7 @@
         enable = true;
     };
 
-    home.persistence."/persist/".directories = [
+    home.persistence."/persist".directories = [
         ".config/discord"
     ];
 }

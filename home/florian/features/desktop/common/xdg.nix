@@ -26,7 +26,7 @@
         };
     };
 
-    home.persistence."/persist/".directories = [
+    home.persistence."/persist".directories = [
         "Desktop"
         "Documents"
         "Downloads"

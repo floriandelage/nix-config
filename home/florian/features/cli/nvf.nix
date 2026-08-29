@@ -21,6 +21,31 @@
                     vim-tmux-navigator = {
                         package = pkgs.vimPlugins.vim-tmux-navigator;
                     };
+
+                    zk-nvim = {
+                        package = pkgs.vimPlugins.zk-nvim;
+                        setup = ''
+                            require("zk").setup({
+                                picker = "minipick",
+
+                                lsp = {
+                                    config = {
+                                        name = "zk",
+                                        cmd = { "zk", "lsp" },
+                                        filetypes = { "markdown" },
+                                    },
+
+                                    auto_attach = {
+                                        enabled = true,
+                                    },
+                                },
+
+                                tags = {
+                                    multi_select_strategy = "AND",
+                                },
+                            })
+                        '';
+                    };
                 };
 
                 vendoredKeymaps.enable = false;
@@ -291,24 +316,6 @@
                 ];
 
                 languages = {
-                    nix = {
-                        enable = true;
-
-                        format = {
-                            enable = true;
-                            type = ["alejandra"];
-                        };
-
-                        lsp = {
-                            enable = true;
-                            servers = ["nixd"];
-                        };
-
-                        treesitter = {
-                            enable = true;
-                        };
-                    };
-
                     clang = {
                         enable = true;
 
@@ -320,6 +327,24 @@
                         lsp = {
                             enable = true;
                             servers = ["clangd"];
+                        };
+
+                        treesitter = {
+                            enable = true;
+                        };
+                    };
+
+                    nix = {
+                        enable = true;
+
+                        format = {
+                            enable = true;
+                            type = ["alejandra"];
+                        };
+
+                        lsp = {
+                            enable = true;
+                            servers = ["nixd"];
                         };
 
                         treesitter = {

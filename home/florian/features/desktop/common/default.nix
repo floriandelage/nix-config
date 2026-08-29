@@ -1,7 +1,6 @@
 {pkgs, ...}: {
     imports = [
         ./discord.nix
-        ./firefox.nix
         ./fonts.nix
         ./gtk.nix
         ./qt.nix

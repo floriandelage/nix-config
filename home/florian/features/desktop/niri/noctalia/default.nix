@@ -8,7 +8,7 @@
         settings = ./config.toml;
     };
 
-    home.persistence."/persist/".directories = [
+    home.persistence."/persist".directories = [
         ".local/state/noctalia"
     ];
 }

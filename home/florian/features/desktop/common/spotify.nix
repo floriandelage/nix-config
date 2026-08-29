@@ -19,7 +19,7 @@
         theme = spicePkgs.themes.onepunch;
     };
 
-    home.persistence."/persist/".directories = [
+    home.persistence."/persist".directories = [
         ".config/spotify"
     ];
 }
