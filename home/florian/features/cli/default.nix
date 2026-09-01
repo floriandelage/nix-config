@@ -11,7 +11,6 @@
         ./ripgrep.nix
         ./ssh.nix
         ./tmux.nix
-        ./zk.nix
         ./zoxide.nix
     ];
 

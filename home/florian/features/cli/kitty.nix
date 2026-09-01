@@ -2,12 +2,12 @@
     programs.kitty = {
         enable = true;
 
-        font = {
-            name = "Iosevka";
-            size = 13;
-        };
-
         settings = {
+            font_family = "Iosevka";
+            bold_font = "auto";
+            italic_font = "auto";
+            bold_italic_font = "auto";
+            font_size = 13;
             cursor_blink_interval = 0;
             cursor_shape = "block";
             cursor_stop_blinking_after = 0;

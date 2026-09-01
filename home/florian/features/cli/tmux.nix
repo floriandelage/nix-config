@@ -8,6 +8,8 @@
         ];
 
         extraConfig = ''
+            set -g default-terminal "tmux-256color"
+            set -as terminal-overrides ',xterm-kitty:Tc'
             set -g mouse on
 
             unbind C-b
