@@ -2,6 +2,7 @@
     imports = [
         ./zsh.nix
 
+        ./devenv.nix
         ./fastfetch.nix
         ./fd.nix
         ./fzf.nix
